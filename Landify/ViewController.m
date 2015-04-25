@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MainTabBar.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor orangeColor];
+
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = YES;
+    
+    MainTabBar *tabBar = [[MainTabBar alloc] initWithNibName:nil bundle:nil];
+    
+    [self.navigationController pushViewController:tabBar animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
