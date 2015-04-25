@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *feedDataArray;
 @property (nonatomic, strong) NSOperationQueue *imageDownloadingQueue;
 @property (nonatomic, strong) NSCache *imageCache;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 - (void)reloadFeedTable;
 

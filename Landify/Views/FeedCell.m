@@ -25,7 +25,7 @@
     self.backgroundColor = [UIColor whiteColor];
     if (!self.mainImage) {
         self.mainImage = [[UIImageView alloc] initWithFrame:CGRectMake(xPos, yPos, size.width,size.height * 0.70)];
-        self.mainImage.backgroundColor = [UIColor orangeColor];
+        self.mainImage.backgroundColor = [UIColor colorWithWhite:0.929 alpha:1.000];
         [self addSubview:self.mainImage];
         yPos += self.mainImage.frame.size.height + 3;
     }

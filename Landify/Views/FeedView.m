@@ -8,6 +8,7 @@
 
 #import "FeedView.h"
 #import <Parse/Parse.h>
+#import "ProgressHUD.h"
 
 @implementation FeedView
 
@@ -34,6 +35,34 @@
     self.feedTable.delegate = self;
     self.feedTable.dataSource = self;
     [self addSubview:self.feedTable];
+    
+    _refreshControl = [[UIRefreshControl alloc] init];
+    _refreshControl.tintColor = [UIColor grayColor];
+    [self.refreshControl addTarget:self action:@selector(refershControlAction:) forControlEvents:UIControlEventValueChanged];
+    [self.feedTable addSubview:_refreshControl];
+}
+
+- (void)refershControlAction:(UIRefreshControl *)ref{
+        PFQuery *query = [PFQuery queryWithClassName:@"Places"];
+        [query whereKey:@"landify_user_id" equalTo:@5];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+                // Do something with the found objects
+                self.feedDataArray = [[objects reverseObjectEnumerator] allObjects];
+                [self reloadFeedTable];
+                [ref endRefreshing];
+                for (PFObject *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                }
+            } else {
+                // Log details of the failure
+                [ref endRefreshing];
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
 }
 
 #pragma mark - Table Methods

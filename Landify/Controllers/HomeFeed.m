@@ -40,7 +40,7 @@
             NSLog(@"Successfully retrieved %d scores.", objects.count);
             // Do something with the found objects
             [self loadFeedView];
-            feedView.feedDataArray = objects;
+            feedView.feedDataArray = [[objects reverseObjectEnumerator] allObjects];
             [feedView reloadFeedTable];
         
             for (PFObject *object in objects) {

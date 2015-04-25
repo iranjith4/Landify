@@ -11,7 +11,6 @@
 		C65068821AEB728D00390C45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C65068811AEB728D00390C45 /* AppDelegate.m */; };
 		C65068851AEB728D00390C45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C65068841AEB728D00390C45 /* ViewController.m */; };
 		C65068881AEB728D00390C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65068861AEB728D00390C45 /* Main.storyboard */; };
-		C650688A1AEB728D00390C45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C65068891AEB728D00390C45 /* Images.xcassets */; };
 		C650688D1AEB728D00390C45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C650688B1AEB728D00390C45 /* LaunchScreen.xib */; };
 		C65068991AEB728D00390C45 /* LandifyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C65068981AEB728D00390C45 /* LandifyTests.m */; };
 		C65068A71AEB78B400390C45 /* MainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C65068A61AEB78B400390C45 /* MainTabBar.m */; };
@@ -63,6 +62,7 @@
 		C650692F1AEC0A0C00390C45 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C650692C1AEC0A0C00390C45 /* ProgressHUD.bundle */; };
 		C65069301AEC0A0C00390C45 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C650692E1AEC0A0C00390C45 /* ProgressHUD.m */; };
 		C65069321AEC135E00390C45 /* ok2.png in Resources */ = {isa = PBXBuildFile; fileRef = C65069311AEC135E00390C45 /* ok2.png */; };
+		C65069341AEC292200390C45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C65069331AEC292200390C45 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,6 @@
 		C65068831AEB728D00390C45 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C65068841AEB728D00390C45 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C65068871AEB728D00390C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C65068891AEB728D00390C45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C650688C1AEB728D00390C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C65068921AEB728D00390C45 /* LandifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LandifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65068971AEB728D00390C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		C650692D1AEC0A0C00390C45 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		C650692E1AEC0A0C00390C45 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		C65069311AEC135E00390C45 /* ok2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok2.png; sourceTree = "<group>"; };
+		C65069331AEC292200390C45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +244,6 @@
 				C65068801AEB728D00390C45 /* AppDelegate.h */,
 				C65068811AEB728D00390C45 /* AppDelegate.m */,
 				C65068861AEB728D00390C45 /* Main.storyboard */,
-				C65068891AEB728D00390C45 /* Images.xcassets */,
 				C650688B1AEB728D00390C45 /* LaunchScreen.xib */,
 				C650687C1AEB728D00390C45 /* Supporting Files */,
 			);
@@ -254,6 +253,7 @@
 		C650687C1AEB728D00390C45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C65069331AEC292200390C45 /* Images.xcassets */,
 				C650687D1AEB728D00390C45 /* Info.plist */,
 				C650687E1AEB728D00390C45 /* main.m */,
 			);
@@ -517,13 +517,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C65069271AEB934500390C45 /* TGCameraAuthorizationViewController.xib in Resources */,
+				C65069341AEC292200390C45 /* Images.xcassets in Resources */,
 				C65068881AEB728D00390C45 /* Main.storyboard in Resources */,
 				C65069281AEB934500390C45 /* TGCameraViewController.xib in Resources */,
 				C650688D1AEB728D00390C45 /* LaunchScreen.xib in Resources */,
 				C65069201AEB934500390C45 /* TGCameraViewController.xcassets in Resources */,
 				C650692F1AEC0A0C00390C45 /* ProgressHUD.bundle in Resources */,
 				C65069291AEB934500390C45 /* TGPhotoViewController.xib in Resources */,
-				C650688A1AEB728D00390C45 /* Images.xcassets in Resources */,
 				C65069321AEC135E00390C45 /* ok2.png in Resources */,
 				C650692A1AEB934500390C45 /* TGCameraAuthorizationViewController.strings in Resources */,
 			);
