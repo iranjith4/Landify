@@ -10,7 +10,7 @@
 #import "TGCameraViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface PostPlaceViewController : UIViewController<TGCameraDelegate,CLLocationManagerDelegate>
+@interface PostPlaceViewController : UIViewController<TGCameraDelegate,CLLocationManagerDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *locationLabel;

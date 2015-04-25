@@ -9,19 +9,50 @@
 #import "HomeFeed.h"
 #import "FeedView.h"
 #import "PostPlaceViewController.h"
+#import <Parse/Parse.h>
+#import "ProgressHUD.h"
 
-@interface HomeFeed ()
+@interface HomeFeed (){
+    FeedView *feedView;
+}
 
 @end
 
 @implementation HomeFeed
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     [self setProperties];
-    [self loadFeedView];
     [self addPostButton];
+    [self getFeedData];
        // Do any additional setup after loading the view.
+}
+
+- (void)getFeedData {
+    [ProgressHUD show:@"Fetching Data" Interaction:NO hide:YES];
+    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
+    [query whereKey:@"landify_user_id" equalTo:@5];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            // Do something with the found objects
+            [self loadFeedView];
+            feedView.feedDataArray = objects;
+            [feedView reloadFeedTable];
+        
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+            }
+            [ProgressHUD dismiss];
+        } else {
+            // Log details of the failure
+            [ProgressHUD dismiss];
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +76,7 @@
 }
 
 - (void)loadFeedView{
-    FeedView *feedView = [[FeedView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    feedView = [[FeedView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:feedView];
 }
 

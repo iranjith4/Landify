@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) UITableView *feedTable;
 @property (nonatomic, strong) NSArray *feedDataArray;
+@property (nonatomic, strong) NSOperationQueue *imageDownloadingQueue;
+@property (nonatomic, strong) NSCache *imageCache;
 
 - (void)reloadFeedTable;
 

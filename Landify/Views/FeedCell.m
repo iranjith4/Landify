@@ -37,38 +37,33 @@
         [self addSubview:self.location];
         yPos +=  self.location.frame.size.height + 3;
     }
-    self.location.text = @"18.3535, 10.34234";
     
     if (!self.userName) {
         self.userName = [[UILabel alloc] initWithFrame:CGRectMake(xPos, yPos,size.width, size.height * 0.04)];
         self.userName.font = [UIFont fontWithName:FONT_MEDIUM size:14];
         self.userName.textColor = [UIColor grayColor];
         [self addSubview:self.userName];
-        yPos += self.userName.frame.size.height;
+        yPos += self.userName.frame.size.height + 3;
     }
-    self.userName.text = @"Sibi";
     
     if (!self.tagNames) {
         self.tagNames = [[UILabel alloc] initWithFrame:CGRectMake(xPos, yPos,size.width, size.height * 0.04)];
         self.tagNames.font = [UIFont fontWithName:FONT_MEDIUM size:13];
         self.tagNames.textColor = [UIColor grayColor];
         [self addSubview:self.tagNames];
-        yPos += self.userName.frame.size.height;
+        yPos += self.userName.frame.size.height + 3;
     }
-    self.tagNames.text = @"Housing, Pleasant";
     
     if (!self.userText) {
         self.userText = [[UILabel alloc] initWithFrame:CGRectMake(xPos, yPos,size.width, size.height * 0.04)];
         self.userText.font = [UIFont fontWithName:FONT_MEDIUM size:14];
         self.userText.textColor = [UIColor colorWithRed:0.177 green:0.629 blue:0.373 alpha:1.000];
         [self addSubview:self.userText];
-        yPos += self.userText.frame.size.height;
+        yPos += self.userText.frame.size.height + 3;
     }
-    self.userText.text = @"This is a good Place for living with Good Place";
     
     if (!self.verifiedSign) {
-        self.verifiedSign = [[UIImageView alloc] initWithFrame:CGRectMake(self.mainImage.frame.origin.x + self.mainImage.frame.size.width - 35, self.mainImage.frame.size.height + self.mainImage.frame.origin.y + 3, 30, 30)];
-        self.verifiedSign.backgroundColor = [UIColor greenColor];
+        self.verifiedSign = [[UIImageView alloc] initWithFrame:CGRectMake(self.mainImage.frame.origin.x + self.mainImage.frame.size.width - 35, self.mainImage.frame.size.height + self.mainImage.frame.origin.y + 3, 15, 15)];
         [self addSubview:self.verifiedSign];
     }
 }

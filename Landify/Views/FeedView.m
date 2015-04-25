@@ -7,6 +7,7 @@
 //
 
 #import "FeedView.h"
+#import <Parse/Parse.h>
 
 @implementation FeedView
 
@@ -14,6 +15,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.imageDownloadingQueue = [[NSOperationQueue alloc] init];
+        self.imageDownloadingQueue.maxConcurrentOperationCount = 3;
+        self.imageCache = [[NSCache alloc] init];
+
         [self initUI];
     }
     return self;
@@ -41,11 +46,44 @@
     }
     [feed initUIForSize:CGSizeMake(self.frame.size.width - 20, self.frame.size.height / 2)];
     cell = (FeedCell *)feed;
+    PFObject *obj = [self.feedDataArray objectAtIndex:indexPath.row];
+    PFGeoPoint *geo = obj[@"geo_point"];
+    feed.location.text = [NSString stringWithFormat:@"%f, %f",geo.latitude,geo.longitude];
+    feed.userName.text = obj[@"user_name"];
+    feed.userText.text = obj[@"user_text"];
+    feed.tagNames.text = obj[@"tags"];
+    if ([obj[@"verify_points"] intValue] > 100) {
+        feed.verifiedSign.image = [UIImage imageNamed:@"ok2"];
+    }
+    UIImage *cachedImage = [self.imageCache objectForKey:obj[@"image_url"]];
+    if (cachedImage)
+    {
+        feed.mainImage.image = cachedImage;
+    } else {
+        [self.imageDownloadingQueue addOperationWithBlock:^{
+            NSURL *imageUrl   = [NSURL URLWithString:obj[@"image_url"]];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+            UIImage *userImg = nil;
+            if (imageData) {
+                userImg = [UIImage imageWithData:imageData];
+                // add the image to your cache
+                [self.imageCache setObject:userImg forKey:obj[@"image_url"]];
+                // finally, update the user interface in the main queue
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // make sure the cell is still visible
+                    FeedCell *tempCell = (FeedCell *)[self.feedTable cellForRowAtIndexPath:indexPath];
+                    if (tempCell) {
+                        tempCell.mainImage.image = userImg;
+                    }
+                }];
+            }
+        }];
+    }
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return self.feedDataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

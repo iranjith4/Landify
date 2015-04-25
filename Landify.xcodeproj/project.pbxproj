@@ -60,6 +60,9 @@
 		C65069281AEB934500390C45 /* TGCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C650690A1AEB934500390C45 /* TGCameraViewController.xib */; };
 		C65069291AEB934500390C45 /* TGPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C650690C1AEB934500390C45 /* TGPhotoViewController.xib */; };
 		C650692A1AEB934500390C45 /* TGCameraAuthorizationViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = C650690E1AEB934500390C45 /* TGCameraAuthorizationViewController.strings */; };
+		C650692F1AEC0A0C00390C45 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C650692C1AEC0A0C00390C45 /* ProgressHUD.bundle */; };
+		C65069301AEC0A0C00390C45 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C650692E1AEC0A0C00390C45 /* ProgressHUD.m */; };
+		C65069321AEC135E00390C45 /* ok2.png in Resources */ = {isa = PBXBuildFile; fileRef = C65069311AEC135E00390C45 /* ok2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +164,10 @@
 		C650690D1AEB934500390C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TGPhotoViewController.xib; sourceTree = "<group>"; };
 		C650690F1AEB934500390C45 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TGCameraAuthorizationViewController.strings; sourceTree = "<group>"; };
 		C65069101AEB934500390C45 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/TGCameraAuthorizationViewController.strings"; sourceTree = "<group>"; };
+		C650692C1AEC0A0C00390C45 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		C650692D1AEC0A0C00390C45 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		C650692E1AEC0A0C00390C45 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		C65069311AEC135E00390C45 /* ok2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +204,7 @@
 		C65068701AEB728D00390C45 = {
 			isa = PBXGroup;
 			children = (
+				C650692B1AEC0A0C00390C45 /* ProgressHUD */,
 				C65068D11AEB90AF00390C45 /* libsqlite3.dylib */,
 				C65068CF1AEB90A300390C45 /* libz.dylib */,
 				C65068CD1AEB909600390C45 /* SystemConfiguration.framework */,
@@ -307,6 +315,7 @@
 		C65068B11AEB812A00390C45 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C65069311AEC135E00390C45 /* ok2.png */,
 				C65068B21AEB814300390C45 /* Constants.h */,
 				C65068B31AEB814300390C45 /* Constants.m */,
 			);
@@ -415,6 +424,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C650692B1AEC0A0C00390C45 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C650692C1AEC0A0C00390C45 /* ProgressHUD.bundle */,
+				C650692D1AEC0A0C00390C45 /* ProgressHUD.h */,
+				C650692E1AEC0A0C00390C45 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,8 +521,10 @@
 				C65069281AEB934500390C45 /* TGCameraViewController.xib in Resources */,
 				C650688D1AEB728D00390C45 /* LaunchScreen.xib in Resources */,
 				C65069201AEB934500390C45 /* TGCameraViewController.xcassets in Resources */,
+				C650692F1AEC0A0C00390C45 /* ProgressHUD.bundle in Resources */,
 				C65069291AEB934500390C45 /* TGPhotoViewController.xib in Resources */,
 				C650688A1AEB728D00390C45 /* Images.xcassets in Resources */,
+				C65069321AEC135E00390C45 /* ok2.png in Resources */,
 				C650692A1AEB934500390C45 /* TGCameraAuthorizationViewController.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +573,7 @@
 				C650691A1AEB934500390C45 /* TGCameraFlash.m in Sources */,
 				C65068821AEB728D00390C45 /* AppDelegate.m in Sources */,
 				C650687F1AEB728D00390C45 /* main.m in Sources */,
+				C65069301AEC0A0C00390C45 /* ProgressHUD.m in Sources */,
 				C65069191AEB934500390C45 /* TGCameraColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
