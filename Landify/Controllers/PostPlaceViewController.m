@@ -18,6 +18,7 @@
     UITextField *tags;
     UIButton *postButton;
     UIProgressView *imageProgress;
+    BOOL isOpenedOnce;
 }
 
 @end
@@ -25,6 +26,7 @@
 @implementation PostPlaceViewController
 
 - (void)viewDidLoad {
+    isOpenedOnce = NO;
     scroll = [[UIScrollView alloc] initWithFrame:self.view.frame];
     scroll.alwaysBounceVertical = YES;
     scroll.scrollEnabled = YES;
@@ -33,6 +35,12 @@
     [super viewDidLoad];
     [self initUI];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    if (!isOpenedOnce) {
+        [self openCamera];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +69,7 @@
     [camera setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [camera addTarget:self action:@selector(openCamera) forControlEvents:UIControlEventTouchUpInside];
     [camera sizeToFit];
-    [scroll addSubview:camera];
+    //[scroll addSubview:camera];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, camera.frame.origin.y + camera.frame.size.height, self.view.frame.size.width / 3, self.view.frame.size.width / 3)];
     self.imageView.center = CGPointMake(self.view.center.x, self.imageView.center.y);
@@ -75,13 +83,15 @@
     
     userText = [[UITextField alloc] initWithFrame:CGRectMake(10,location.frame.origin.y + location.frame.size.height + 3, self.view.frame.size.width - 20, 30)];
     userText.font = [UIFont fontWithName:FONT_MEDIUM size:12];
-    userText.borderStyle = UITextBorderStyleLine;
+    userText.borderStyle = UITextBorderStyleRoundedRect;
+    userText.placeholder = @"Say something about this place..";
     userText.delegate = self;
     [scroll addSubview:userText];
     
     tags = [[UITextField alloc] initWithFrame:CGRectMake(10,userText.frame.origin.y + userText.frame.size.height + 3, self.view.frame.size.width - 20, 30)];
     tags.font = [UIFont fontWithName:FONT_MEDIUM size:12];
-    tags.borderStyle = UITextBorderStyleLine;
+    tags.borderStyle = UITextBorderStyleRoundedRect;
+    tags.placeholder = @"Add tags";
     tags.delegate = self;
     [scroll addSubview:tags];
     
@@ -97,7 +107,7 @@
     imageProgress.trackTintColor = [UIColor colorWithWhite:0.980 alpha:0.5];
     [scroll addSubview:imageProgress];
     
-    scroll.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
+    scroll.contentSize = CGSizeMake(self.view.frame.size.width, 600);
 }
 
 - (void)postToServer{
@@ -158,6 +168,7 @@
 }
 
 - (void)openCamera{
+    isOpenedOnce = YES;
     TGCameraNavigationController *navigationController =
     [TGCameraNavigationController newWithCameraDelegate:self];
     
