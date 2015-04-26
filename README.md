@@ -1,29 +1,26 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This readme contains all the data for the Running of the Application.
+
+Landify is app made for Housing.com in Real hack organised by Venturesity.
+
+The entire mockup and Documentation can be downloaded [here](https://www.dropbox.com/sh/focymwb66wp17wq/AACDNZa7Hv8tOuN-bTx_2dMda?dl=1)
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
+* 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Install Xcode 6.3.3 or Higher in Mac OS X 10.10
+* Download iOS SDK 8.3 or Later
 
-### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+### Assumptions ###
 
-### Who do I talk to? ###
+* No Signup is done, as the user "Ranjith" with user id "5" is hard coded just for demo. 
 
-* Repo owner or admin
-* Other community or team contact
+### Technology Stacks? ###
+
+* Xcode
+* iOS Frameworks
+* Parse backend
